@@ -25,7 +25,7 @@ services:
     env_file:
     - ./.env
     build:
-      context: ./go-bot
+      context: ../go-bot
       dockerfile: Dockerfile.dev
     ports:
       - $XAOSBOT_PORT:$XAOSBOT_PORT
