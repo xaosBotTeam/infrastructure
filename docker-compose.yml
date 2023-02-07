@@ -26,7 +26,7 @@ services:
     - ./.env
     build:
       context: ../go-bot
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
       - $XAOSBOT_PORT:$XAOSBOT_PORT
   web:
@@ -37,9 +37,11 @@ services:
       - postgres
     build:
       context: ../web-control
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     environment:
       - GO_BOT_URL=http://bot:5504
+    env_file:
+      - ./.env
     ports:
       - 80:3000
 
